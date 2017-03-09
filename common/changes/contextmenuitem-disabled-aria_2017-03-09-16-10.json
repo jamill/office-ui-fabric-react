@@ -1,0 +1,10 @@
+{
+  "changes": [
+    {
+      "packageName": "office-ui-fabric-react",
+      "comment": "Set aria-disabled attribute on ContextualMenuItem if disabled",
+      "type": "patch"
+    }
+  ],
+  "email": "jamill@microsoft.com"
+}

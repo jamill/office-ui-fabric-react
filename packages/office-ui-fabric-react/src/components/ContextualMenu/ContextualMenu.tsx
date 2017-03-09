@@ -348,6 +348,7 @@ export class ContextualMenu extends BaseComponent<IContextualMenuProps, IContext
       'aria-label': ariaLabel,
       'aria-haspopup': hasSubmenuItems(item) ? true : null,
       'aria-owns': item.key === expandedMenuItemKey ? subMenuId : null,
+      'aria-disabled': item.isDisabled || item.disabled,
       style: item.style,
     };
 

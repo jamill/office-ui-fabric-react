@@ -24,6 +24,31 @@ describe('ContextualMenu', () => {
     }
   });
 
+  it('does have proper aria-disabled attribute', () => {
+    const items: IContextualMenuItem[] = [
+      { name: 'TestText 1', key: 'TestKey1', disabled: true },
+      { name: 'TestText 2', key: 'TestKey2', isDisabled: true },
+      { name: 'TestText 3', key: 'TestKey3' }
+    ];
+
+    ReactTestUtils.renderIntoDocument<ContextualMenu>(
+      <ContextualMenu
+        items={ items }
+      />
+    );
+
+    let menuItemButtons = document.querySelectorAll('.ms-ContextualMenu-link');
+
+    expect(menuItemButtons.length).to.be.eq(3, 'This menu has an incorrect number of items');
+    let disabled1 = menuItemButtons[0];
+    let disabled2 = menuItemButtons[1];
+    let enabled1 = menuItemButtons[2];
+
+    expect(disabled1.attributes.getNamedItem('aria-disabled').value).to.be.eq('true', 'first item is disabled and should have aria-disabled attribute set to true');
+    expect(disabled2.attributes.getNamedItem('aria-disabled').value).to.be.eq('true', 'second item is disabled and should have aria-disabled attribute set to true');
+    expect(enabled1.attributes.getNamedItem('aria-disabled')).to.be.eq(null, "third item is not disabled and should not have aria-disabled attribute");
+  });
+
   it('does not have a scrollbar due to an overflowing icon', () => {
     const items: IContextualMenuItem[] = [
       { name: 'TestText 1', key: 'TestKey1', canCheck: true, isChecked: true },
