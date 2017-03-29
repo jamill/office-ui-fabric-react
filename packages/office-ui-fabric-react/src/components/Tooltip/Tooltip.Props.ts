@@ -34,6 +34,8 @@ export interface ITooltipProps extends React.HTMLProps<HTMLDivElement | Tooltip>
    * @default DirectionalHint.topCenter
    */
   directionalHint?: DirectionalHint;
+
+  layerHostId?: string;
 }
 
 export enum TooltipDelay {

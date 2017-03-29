@@ -22,6 +22,9 @@ export interface ICalloutProps extends React.Props<Callout | CalloutContent> {
    */
   directionalHint?: DirectionalHint;
 
+  layerHostId?: string;
+
+  hostId?: string;
   /**
    * The gap between the Callout and the target
    * @default 16

@@ -33,7 +33,7 @@ export class TooltipHost extends BaseComponent<ITooltipHostProps, any> {
 
   // Render
   public render() {
-    let { content, children, directionalHint, delay } = this.props;
+    let { content, children, directionalHint, delay, layerHostId } = this.props;
     let { isTooltipVisible } = this.state;
     return (
       <div
@@ -51,7 +51,7 @@ export class TooltipHost extends BaseComponent<ITooltipHostProps, any> {
             content={ content }
             targetElement={ this._tooltipHost }
             directionalHint={ directionalHint }
-            calloutProps={ { onDismiss: this._onTooltipCallOutDismiss } }
+            calloutProps={ { onDismiss: this._onTooltipCallOutDismiss, layerHostId: layerHostId} }
             { ...getNativeProps(this.props, divProperties) }
           >
           </Tooltip>

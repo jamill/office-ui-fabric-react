@@ -18,7 +18,7 @@ export class Callout extends BaseComponent<ICalloutProps, ICalloutState> {
       <CalloutContent { ...this.props } />
     );
     return this.props.doNotLayer ? content : (
-      <Layer>
+      <Layer hostId={this.props.hostId || null} >
         { content }
       </Layer>
     );

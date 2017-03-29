@@ -28,7 +28,7 @@ export class Tooltip extends BaseComponent<ITooltipProps, any> {
   };
 
   public render() {
-    let { targetElement, content, calloutProps, directionalHint, delay, id } = this.props;
+    let { targetElement, content, calloutProps, directionalHint, delay, id, layerHostId } = this.props;
 
     return (
       <Callout
@@ -37,6 +37,7 @@ export class Tooltip extends BaseComponent<ITooltipProps, any> {
         }) }
         targetElement={ targetElement }
         directionalHint={ directionalHint }
+        hostId={ layerHostId }
         {...calloutProps}
         { ...getNativeProps(this.props, divProperties) }
       >

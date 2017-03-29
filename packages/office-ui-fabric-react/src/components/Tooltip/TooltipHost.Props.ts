@@ -29,4 +29,6 @@ export interface ITooltipHostProps extends React.HTMLProps<HTMLDivElement | Tool
    * @default DirectionalHint.topCenter
    */
   directionalHint?: DirectionalHint;
+
+  layerHostId?: string;
 }
